@@ -1,4 +1,23 @@
 import subprocess
+import requests
+
+
+def download_neat():
+    url = "https://github.com/bastianloyola/NEAT-ANNarchy/raw/refs/heads/main/NEAT"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        with open("NEAT", "wb") as file:
+            file.write(response.content)
+        print("Archivo descargado y guardado como 'NEAT'")
+    else:
+        print(f"Error al descargar el archivo: {response.status_code}")
+
+    # Dar permisos de ejecución al archivo
+    subprocess.run(["chmod", "+x", "NEAT"])
+
+
+
 def write_annarchy(neuron_model, func):
     # Leer el contenido dinámico de neuronmodel.py
     with open("neuronmodel.py", "r") as neuron_file:
@@ -82,6 +101,8 @@ def get_neuron_model():
             
 
 def runNEAT(trial, func, neuron_model, procesos, evolutions, population):
+
+    download_neat()
     #open config file and write the parameters
     with open('config/config.cfg', 'a') as f:
         f.write(f'function={func}\n')

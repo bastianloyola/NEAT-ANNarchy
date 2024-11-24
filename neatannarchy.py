@@ -9,9 +9,6 @@ def download_neat():
     if response.status_code == 200:
         with open("NEAT", "wb") as file:
             file.write(response.content)
-        print("Archivo descargado y guardado como 'NEAT'")
-    else:
-        print(f"Error al descargar el archivo: {response.status_code}")
 
     # Dar permisos de ejecución al archivo
     subprocess.run(["chmod", "+x", "NEAT"])

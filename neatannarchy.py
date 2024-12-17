@@ -117,7 +117,6 @@ def runNEAT(trial, func, neuron_model, procesos, evolutions, population):
 
     process.wait()
     
-    return output
 
     if process.returncode != 0:
         print("Error running NEAT:", error)

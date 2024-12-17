@@ -56,7 +56,7 @@ def write_annarchy(neuron_model, func):
         "        output_index = []",
         "        n_inputs = int(n_inputs)",
         "        n_outputs = int(n_outputs)",
-        "        for i in range(n_outputs):",
+        "        for i in range(n_inputs):",
         "            input_index.append(i)",
         "        for i in range(n_inputs, n_outputs + n_inputs):",
         "            output_index.append(i)",
@@ -64,7 +64,7 @@ def write_annarchy(neuron_model, func):
         "        if inputWeights.size == 0:",
         "            raise ValueError('inputWeights is empty')",
         "",
-        f"        fit = {func}(pop, M, input_index, output_index, inputWeights)",
+        f"        fit = {func}(pop, M, input_index, output_index, inputWeights, genome_id)",
         "        return fit",
         "    except Exception as e:",
         "        # Capture the error and print it",
@@ -116,6 +116,8 @@ def runNEAT(trial, func, neuron_model, procesos, evolutions, population):
     output, error = process.communicate()
 
     process.wait()
+    
+    return output
 
     if process.returncode != 0:
         print("Error running NEAT:", error)

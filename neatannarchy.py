@@ -119,8 +119,18 @@ def runNEAT(trial, func, neuron_model, procesos, evolutions, population):
     
 
     if process.returncode != 0:
+        print("Output:", output)
         print("Error running NEAT:", error)
+        print("Return code:", process.returncode)
     else:
         fitness = float(output.strip().split("\n")[-1])
         return fitness
     
+def fitness_value(trial):
+    with open(f'results/trial-{trial}/info.txt') as f:
+        lines = f.readlines()
+        fitness = []
+        for line in lines:
+            if line.startswith('Genome fitness:'):
+                fitness.append(float(line.split(': ')[1].strip()))
+        return fitness[-1]

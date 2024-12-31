@@ -125,9 +125,6 @@ def runNEAT(trial, func, neuron_model, procesos, evolutions, population):
         print("Output:", output)
         print("Error running NEAT:", error)
         print("Return code:", process.returncode)
-    else:
-        fitness = float(output.strip().split("\n")[-1])
-        return fitness
     
 def fitness_value(trial):
     with open(f'results/trial-{trial}/info.txt') as f:
@@ -310,7 +307,7 @@ def information(folder):
     with open(outputFile, 'w') as f:
         json.dump(data_to_save, f, indent=4, separators=(", ", ": "))
 
-    print(f"Datos guardados en {outputFile}")
+    print(f"Data saved in {outputFile}")
 
 
 
@@ -338,7 +335,6 @@ def plot_information(trial):
     ax1.set_title('Eliminated per Generation')
     ax1.set_xlabel('Generation')
     ax1.set_ylabel('Amount')
-    ax1.set_xticks(generaciones)
     ax1.legend()
 
     # Gráfico de redroduced
@@ -350,7 +346,6 @@ def plot_information(trial):
     ax2.set_title('Redroduced per Generation')
     ax2.set_xlabel('Generation')
     ax2.set_ylabel('Amount')
-    ax2.set_xticks(generaciones)
     ax2.legend()
 
     # Gráfico de especies
@@ -359,7 +354,6 @@ def plot_information(trial):
     ax3.set_title('Number of Species per Generation')
     ax3.set_xlabel('Generation')
     ax3.set_ylabel('Amount de Especies')
-    ax3.set_xticks(generaciones)
     ax3.legend()
 
     # Gráfico del mejor genoma
@@ -369,7 +363,6 @@ def plot_information(trial):
     ax4.set_title('Fitness of the Best Genome per Generation')
     ax4.set_xlabel('Generation')
     ax4.set_ylabel('Fitness')
-    ax4.set_xticks(generaciones)
     ax4.legend()
 
     plt.tight_layout(rect=[0, 0, 1, 0.96])
@@ -389,7 +382,6 @@ def plot_information(trial):
     ax_op.set_title('Operators per Generation')
     ax_op.set_xlabel('Generation')
     ax_op.set_ylabel('Amount')
-    ax_op.set_xticks(generaciones)
     ax_op.legend()
 
     plt.tight_layout(rect=[0, 0, 1, 0.96])
@@ -417,7 +409,6 @@ def plot_information(trial):
 
     ax_barras.set_xlabel('Generation')
     ax_barras.set_ylabel('Amount de Genomas')
-    ax_barras.set_xticks(generaciones)
     ax_barras.legend(title='Species', loc='upper left', bbox_to_anchor=(1, 1))
 
     plt.tight_layout(rect=[0, 0, 1, 0.96])

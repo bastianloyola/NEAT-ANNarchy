@@ -105,18 +105,12 @@ def cartpole(pop,Monitor,input_index,output_index,inputWeights, genome_id):
             i = 0
             k = 0
             for val in observation:
-                print(k)
-                print("len(input_index):",input_index)
-                print("output_index:",output_index)
-                print("len(inputWeights):",len(inputWeights))
-                print("limits[k]:",limits[k][0])
-                print("input_index[i]:",input_index[i])
                 if val < 0:
-                    val = normalize(val, limits[k][0], limits[k][1])
+                    #val = normalize(val, limits[k][0], limits[k][1])
                     pop[int(input_index[i])].I = -val*inputWeights[k]
                     pop[int(input_index[i+1])].I = 0
                 else:
-                    val = normalize(val, limits[k][0], limits[k][1])
+                    #val = normalize(val, limits[k][0], limits[k][1])
                     pop[int(input_index[i])].I = 0
                     pop[int(input_index[i+1])].I = val*inputWeights[k]
                 i += 2

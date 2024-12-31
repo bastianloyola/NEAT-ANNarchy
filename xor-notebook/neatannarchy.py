@@ -125,9 +125,6 @@ def runNEAT(trial, func, neuron_model, procesos, evolutions, population):
         print("Output:", output)
         print("Error running NEAT:", error)
         print("Return code:", process.returncode)
-    else:
-        fitness = float(output.strip().split("\n")[-1])
-        return fitness
     
 def fitness_value(trial):
     with open(f'results/trial-{trial}/info.txt') as f:
@@ -310,7 +307,7 @@ def information(folder):
     with open(outputFile, 'w') as f:
         json.dump(data_to_save, f, indent=4, separators=(", ", ": "))
 
-    print(f"Datos guardados en {outputFile}")
+    print(f"Data saved in {outputFile}")
 
 
 

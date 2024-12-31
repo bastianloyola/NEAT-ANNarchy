@@ -27,13 +27,16 @@
 
 --Results of run:0 --
 Best Genome 
-Genome id: 511
+Genome id: 369
 Genome fitness: 4
    IN  OUT    Weight  Innov
-    1    3   106.566      1
-    1    4   109.674      2
-    2    3   136.395      3
-    2    4   107.597      4
+    1    3   100.163      1
+    1    4   112.429      2
+    2    3   111.372      3
+    2    4   108.042      4
+    0   10    103.75     27
+   10    1  -115.669     28
+    4    3   105.492     29
 
 Summerized results: 
 run: 0 bestFitness: 4
